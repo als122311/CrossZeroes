@@ -4,7 +4,7 @@ let message = document.querySelector("#message")
 let cells = document.querySelectorAll(".cell")
 
 let player = Math.random() < 0.5 ? "X":"0"
-message.innerText = "Ходит:" + player
+message.innerText = "Move:" + player
  
 let steps = 0
 
@@ -16,7 +16,7 @@ let zIndex = 100
 
 function changePlayer () {
     player = player == "X"?"0":"X"
-    message.innerText = "Ходит:" + player
+    message.innerText = "Move:" + player
 }
 
 cells.forEach(function(cell) {
@@ -29,11 +29,11 @@ cells.forEach(function(cell) {
 
         steps++
         if(checkWin() == true){
-          message.innerText = "Выиграл:" + player
+          message.innerText = "Won:" + player
           gameOver = true
         }
         else if (steps == 9) {
-          message.innerText = "Ничья" 
+          message.innerText = "Draw" 
           gameOver = true
         }
         else{
@@ -53,7 +53,7 @@ restart.addEventListener("click",function(){
         cell.classList.remove("pressed")
     })
     let player = Math.random() < 0.5 ? "X":"0"
-        message.innerText = "Ходит:" + player
+        message.innerText = "Move:" + player
     gameOver = false
     steps = 0
 })
